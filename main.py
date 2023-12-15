@@ -28,6 +28,7 @@ game_on = True
 # Game loop
 while game_on:
     screen.update()
+    ball.move() # Function to keep ball moving continuously
 
 # Exit on click
 screen.exitonclick()
