@@ -12,10 +12,12 @@ class Paddle(Turtle):
         self.penup() # Lifts the pen up so no pen lines will be drawn from center (instantiation point)
         self.goto(position)
 
+    # Function to move paddle up
     def up(self):
         new_y = self.ycor() + 20
         self.goto(self.xcor(), new_y)
 
+    # Function to move paddle down
     def down(self):
         new_y = self.ycor() - 20
         self.goto(self.xcor(), new_y)
