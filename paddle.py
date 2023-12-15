@@ -3,7 +3,7 @@ from turtle import Turtle
 
 class Paddle(Turtle):
 
-    # Init method; setting paddle characteristics on creation
+    # Init function; setting paddle characteristics on creation
     def __init__(self, position):
         super().__init__()
         self.shape("square")
