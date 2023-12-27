@@ -2,6 +2,7 @@
 from turtle import Screen
 from paddle import Paddle
 from ball import Ball
+import time
 
 # Create screen and give characteristics
 screen = Screen()
@@ -27,8 +28,12 @@ game_on = True
 
 # Game loop
 while game_on:
+    time.sleep(0.025)
     screen.update()
     ball.move() # Function to keep ball moving continuously
+
+    if ball.ycor() > 300 or ball.ycor() < -300:
+        ball.bounce()
 
 # Exit on click
 screen.exitonclick()
