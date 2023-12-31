@@ -25,3 +25,8 @@ class Ball(Turtle):
     # Change of direction function for when ball hits paddle
     def paddle_bounce(self):
         self.x_move *= -1
+
+    # Detect if player's paddle misses the ball
+    def out_of_bounds(self):
+        self.goto(0, 0)
+        self.paddle_bounce()
