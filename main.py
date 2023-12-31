@@ -28,12 +28,21 @@ game_on = True
 
 # Game loop
 while game_on:
-    time.sleep(0.025)
+    time.sleep(0.075)
     screen.update()
     ball.move() # Function to keep ball moving continuously
 
-    if ball.ycor() > 300 or ball.ycor() < -300:
-        ball.bounce()
+    # Check collision with boundary
+    if ball.ycor() > 280 or ball.ycor() < -280:
+        ball.wall_bounce()
+
+    # Check collision with right paddle
+    if ball.distance(r_paddle) < 50 and ball.xcor() > 320:
+        ball.paddle_bounce()
+    
+    # Check collision with left paddle
+    if ball.distance(l_paddle) < 50 and ball.xcor() < -320:
+        ball.paddle_bounce()
 
 # Exit on click
 screen.exitonclick()
