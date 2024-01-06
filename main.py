@@ -16,7 +16,7 @@ screen.tracer(0)
 r_paddle = Paddle((350, 0))
 l_paddle = Paddle((-350, 0))
 ball = Ball()
-scoreBoard = Scoreboard()
+scoreboard = Scoreboard()
 
 # Screen listening for key inputs to move paddles
 screen.listen()
@@ -49,6 +49,11 @@ while game_on:
 
     # Instructions for ball out of bounds (when a player gets a point)
     if ball.xcor() < -425 or ball.xcor() > 425:
+        # Check if ball went out on left side (right player's point)
+        if ball.xcor() < -425:
+            scoreboard.r_point()
+        else:
+            scoreboard.l_point()
         ball.out_of_bounds()
 
 # Exit on click
